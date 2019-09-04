@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AP_Comp_Sci_2019_Intellij.iml" filepath="$PROJECT_DIR$/AP_Comp_Sci_2019_Intellij.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AP_Comp_Sci_2019.iml" filepath="$PROJECT_DIR$/AP_Comp_Sci_2019.iml" />
     </modules>
   </component>
 </project>
