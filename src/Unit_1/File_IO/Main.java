@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        File f = new File("numbers.txt");
+        File f = new File("src/Unit_1/File_IO/numbers.txt");
         Scanner s = new Scanner(f);
         evenNumbers(s);
     }
