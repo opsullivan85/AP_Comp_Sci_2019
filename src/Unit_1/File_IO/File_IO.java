@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Main {
+public class File_IO {
 
     public static void main(String[] args) throws FileNotFoundException {
         File f = new File("src/Unit_1/File_IO/numbers.txt");
