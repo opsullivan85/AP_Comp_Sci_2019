@@ -1,4 +1,4 @@
-package Unit_1.File_IO;
+package File_IO_Practice;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,7 +26,7 @@ public class File_IO {
 
     }
 
-    public static void evenNumbers(Scanner s){
+    private static void evenNumbers(Scanner s){
         int nums = 0 ;
         int sum = 0;
         int evens = 0;
@@ -41,10 +41,10 @@ public class File_IO {
         System.out.printf("%d evens (%.1f%%)\n", evens, evens / (double)nums * 100);
     }
 
-    public static void printDuplicates(Scanner s){
+    private static void printDuplicates(Scanner s){
         String str;
         String[] words;
-        int occurances = 0;
+        int occurances;
         while (s.hasNext()){
 
             str = s.nextLine();
@@ -64,9 +64,8 @@ public class File_IO {
         }
     }
 
-    public static void coinFlip(Scanner s){
+    private static void coinFlip(Scanner s){
         String str;
-        String[] words;
         int h, t;
         while (s.hasNext()){
             h = 0;
