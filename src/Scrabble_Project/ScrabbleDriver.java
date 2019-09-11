@@ -3,19 +3,39 @@ package Scrabble_Project;
 import java.util.Scanner;
 import java.io.IOException;
 
-public class ScrabbleDriver{
-  public static void main(String args[]) 
-  {
-    try{
-      Scanner s = new Scanner(System.in);
-      System.out.println("Enter the file name:");
-      String fileName = s.nextLine();
-      TextFileAccessor scrab = new MaxScrabbleScore();
-      scrab.openFile(fileName);
-      scrab.processFile();
-      System.out.println(scrab.getReportStr());
+/**
+ * Prompts the user for a file then scans the file for
+ * the line with the highest scrabble score
+ */
+public final class ScrabbleDriver {
+
+    private static final Scanner s = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        do {
+            try {
+
+                System.out.print("Enter the file name: ");
+                String fileName = s.nextLine();
+
+                TextFileAccessor scrab = new MaxScrabbleScore();
+
+                scrab.openFile(fileName);
+                scrab.processFile();
+                System.out.println(scrab.getReportStr());
+
+
+            } catch (IOException ioex) {
+                ioex.printStackTrace();
+            }
+        } while (runAgain());
+        s.close();
     }
-    catch(IOException ioex)
-    {System.out.println(ioex);}
-  }
+
+    private static Boolean runAgain() {
+        System.out.print("\nReRun? (y/n): ");
+        String in = s.nextLine().toLowerCase();
+        return (in.isEmpty() || in.charAt(0) == 'y');
+    }
 }
