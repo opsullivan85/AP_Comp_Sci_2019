@@ -1,7 +1,7 @@
 package Scrabble_Project;
 
-import java.util.Scanner;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  * Prompts the user for a file then scans the file for

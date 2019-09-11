@@ -1,9 +1,5 @@
 package Scrabble_Project;
 
-
-/**
- *
- */
 public class MaxScrabbleScore extends TextFileAccessor {
 
     /**
@@ -24,7 +20,7 @@ public class MaxScrabbleScore extends TextFileAccessor {
     private static final int[] POINTS = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
     MaxScrabbleScore() {
-       //initialize variables in constructor
+        //initialize variables in constructor
     }
 
     /**
