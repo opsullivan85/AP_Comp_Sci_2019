@@ -6,16 +6,23 @@ import java.util.Scanner;
 
 
 abstract class TextFileAccessor {
+    /**
+     * The scanner to grab user input
+     */
     private Scanner scan;
 
-    //Write the openFile method that returns nothing and accepts the file name as a
-    // parameter and assigns the file to the Scanner object scan
+    /**
+     * @param fileName The path for the file to be opened
+     * @throws IOException If the path is invalid
+     */
     public void openFile(String fileName) throws IOException {
         this.scan = new Scanner(new File(fileName));
     }
 
-    //Write the processFile method which takes no parameters and hands each line to
-    //the processLine method in a loop before closing the Scanner
+    /**
+     * Processes the file line by line using the processLine method
+     * then closes the scanner
+     */
     void processFile() {
         while (scan.hasNextLine()) {
             this.processLine(scan.nextLine());

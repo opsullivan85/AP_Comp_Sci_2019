@@ -24,13 +24,14 @@ public class MaxScrabbleScore extends TextFileAccessor {
     }
 
     /**
+     * Processes a string and compares it to the current highest scoring line
      * @param line The line to be processed
      */
     protected void processLine(String line) {
-        //process each character from the current line
-        //calculate sum of the scores for characters in that line
+        //Running total of points for the line
         int curScore = 0;
 
+        //Loop through characters in the line and add up their points
         for (int i = line.length() - 1; i >= 0; i--) {
             curScore += this.getScrabbleScore(line.charAt(i), i);
         }
@@ -48,14 +49,15 @@ public class MaxScrabbleScore extends TextFileAccessor {
      * @return The score from the character and its position
      */
     private int getScrabbleScore(char c, int pos) {
-        //helper method to return the score for the character
-
+        //Score is zero if the character is not a letter
         if (!Character.isLetter(c)) {
             return 0;
         }
 
+        //Index POINTS using the character
         int rawScore = POINTS[Character.toLowerCase(c) - 'a'];
 
+        //Calculate the positional modifier
         int modifier = 1;
 
         if (pos % 9 == 0)
