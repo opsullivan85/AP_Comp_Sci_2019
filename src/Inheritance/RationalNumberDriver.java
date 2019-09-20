@@ -1,9 +1,9 @@
 package Inheritance;
 
 public class RationalNumberDriver {
-    public static void main(String[] args){
-        RationalNumber n = new RationalNumber(42, 7);
+    public static void main(String[] args) {
+        RationalNumber n = new RationalNumber(7, 42);
         System.out.println(n.toString());
-        System.out.println(n.toString());
+        //System.out.println(n.toString());
     }
 }

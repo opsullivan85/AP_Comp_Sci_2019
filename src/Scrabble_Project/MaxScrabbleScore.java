@@ -25,6 +25,7 @@ public class MaxScrabbleScore extends TextFileAccessor {
 
     /**
      * Processes a string and compares it to the current highest scoring line
+     *
      * @param line The line to be processed
      */
     protected void processLine(String line) {

@@ -3,7 +3,7 @@ package Inheritance;
 import java.util.Scanner;
 
 public class CelestialBodyDriver {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 
         System.out.print("orbitRadius: ");
@@ -19,7 +19,6 @@ public class CelestialBodyDriver {
         int frames = s.nextInt();
 
         b.run(frames);
-
 
 
     }

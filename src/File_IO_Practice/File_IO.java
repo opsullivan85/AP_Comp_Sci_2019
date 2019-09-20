@@ -26,37 +26,37 @@ public class File_IO {
 
     }
 
-    private static void evenNumbers(Scanner s){
-        int nums = 0 ;
+    private static void evenNumbers(Scanner s) {
+        int nums = 0;
         int sum = 0;
         int evens = 0;
         int val;
-        while(s.hasNextInt()){
+        while (s.hasNextInt()) {
             val = s.nextInt();
             sum += val;
             nums++;
             evens += 1 - (val % 2);
         }
         System.out.printf("%d numbers, sum = %d\n", nums, sum);
-        System.out.printf("%d evens (%.1f%%)\n", evens, evens / (double)nums * 100);
+        System.out.printf("%d evens (%.1f%%)\n", evens, evens / (double) nums * 100);
     }
 
-    private static void printDuplicates(Scanner s){
+    private static void printDuplicates(Scanner s) {
         String str;
         String[] words;
         int occurances;
-        while (s.hasNext()){
+        while (s.hasNext()) {
 
             str = s.nextLine();
             words = str.split(" ");
 
-            for (int i = 0; i < words.length; i++){
+            for (int i = 0; i < words.length; i++) {
                 occurances = 1;
-                while(i < words.length - 1 && words[i].equals(words[i+1])){
+                while (i < words.length - 1 && words[i].equals(words[i + 1])) {
                     occurances++;
                     i++;
                 }
-                if(occurances > 1){
+                if (occurances > 1) {
                     System.out.print(words[i] + "*" + occurances + " ");
                 }
             }
@@ -64,16 +64,16 @@ public class File_IO {
         }
     }
 
-    private static void coinFlip(Scanner s){
+    private static void coinFlip(Scanner s) {
         String str;
         int h, t;
-        while (s.hasNext()){
+        while (s.hasNext()) {
             h = 0;
             t = 0;
             str = s.nextLine().toLowerCase();
 
-            for (int c = 0; c < str.length(); c++){
-                switch (str.charAt(c)){
+            for (int c = 0; c < str.length(); c++) {
+                switch (str.charAt(c)) {
                     case 'h':
                         h++;
                         break;
@@ -83,7 +83,7 @@ public class File_IO {
                 }
             }
             System.out.printf("%d heads (%%%.1f)%n", h, (double) h / (h + t) * 100);
-            if(h > t) {
+            if (h > t) {
                 System.out.println("You Win!");
             }
             System.out.println();

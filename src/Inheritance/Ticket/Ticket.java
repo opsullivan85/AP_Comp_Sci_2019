@@ -1,4 +1,4 @@
-package Inheritance;
+package Inheritance.Ticket;
 
 public abstract class Ticket {
     static int num = 1;
@@ -6,7 +6,7 @@ public abstract class Ticket {
     private String type;
     private int id;
 
-    Ticket(double price, String time, String type){
+    Ticket(double price, String time, String type) {
         this.time = time;
         this.type = type;
         this.id = num;
