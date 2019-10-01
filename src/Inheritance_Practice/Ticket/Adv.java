@@ -1,4 +1,4 @@
-package Inheritance.Ticket;
+package Inheritance_Practice.Ticket;
 
 public class Adv extends Ticket {
 

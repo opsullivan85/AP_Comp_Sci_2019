@@ -1,4 +1,4 @@
-package Inheritance.Ticket;
+package Inheritance_Practice.Ticket;
 
 public class TicketDriver {
     public static void main(String[] args) {

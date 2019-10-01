@@ -1,4 +1,4 @@
-package Inheritance;
+package Inheritance_Practice.Rational_Number;
 
 public class RationalNumberDriver {
     public static void main(String[] args) {

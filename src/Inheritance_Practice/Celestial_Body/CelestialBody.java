@@ -1,10 +1,10 @@
-package Inheritance;
+package Inheritance_Practice.Celestial_Body;
 
 import java.util.Arrays;
 
 public class CelestialBody {
-    private double[] position = new double[2];
-    private double[] velocity = new double[2];
+    private double[] position;
+    private double[] velocity;
     private double[] accel = new double[2];
     private double time = 0.0;
 

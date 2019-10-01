@@ -1,4 +1,4 @@
-package Inheritance;
+package Inheritance_Practice.Rational_Number;
 
 public class RationalNumber {
     private int numerator, denominator;
@@ -45,7 +45,7 @@ public class RationalNumber {
         if (denominator == 0) {
             return "NaN";
         } else if (denominator == 1) {
-            return String.format("%d\n", numerator, denominator);
+            return String.format("%d\n", numerator);
         } else {
             return String.format("%d/%d\n", numerator, denominator);
         }

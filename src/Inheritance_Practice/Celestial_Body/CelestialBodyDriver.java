@@ -1,4 +1,4 @@
-package Inheritance;
+package Inheritance_Practice.Celestial_Body;
 
 import java.util.Scanner;
 
