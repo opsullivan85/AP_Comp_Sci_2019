@@ -1,13 +1,13 @@
-package Unit_1.Scrabble;
+package Scrabble_Project;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Scrabble {
+public class Old_Scrabble {
     public static void main(String[] args) throws FileNotFoundException {
 
-        char[][] words = fileReader("src/Unit_1/Scrabble/words.txt");
+        char[][] words = fileReader("src/Scrabble_Project/old_words.txt");
         int[] wordPoints = getScrabblePoints(words);
         showWordPoints(words, wordPoints);
     }
@@ -17,7 +17,7 @@ public class Scrabble {
      * @return An array of words from the next line in the file stored as cStrings
      * @throws FileNotFoundException if the path is invalid
      */
-    public static char[][] fileReader(String path) throws FileNotFoundException {
+    private static char[][] fileReader(String path) throws FileNotFoundException {
         Scanner s = new Scanner(new File(path));
 
         //Grab a line as a string from the file,
@@ -27,7 +27,7 @@ public class Scrabble {
         char[][] words = new char[wordStrings.length][];
 
         //Convert the String array to an array of char arrays
-        for (int i = 0; i < wordStrings.length; i++){
+        for (int i = 0; i < wordStrings.length; i++) {
             words[i] = wordStrings[i].toCharArray();
         }
 
@@ -35,28 +35,28 @@ public class Scrabble {
     }
 
     /**
-     * @param words An array of
-     * @return
+     * @param words An array of cStrings to get the scrabble points for
+     * @return An int array of scrabble points corresponding to the words
      */
-    public static int[] getScrabblePoints(char[][] words){
+    private static int[] getScrabblePoints(char[][] words) {
         //The array of point values for each letter
         final int[] points = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
         int[] wordPoints = new int[words.length];
 
         //For each word
-        for (int i = 0; i < words.length; i++){
+        for (int i = 0; i < words.length; i++) {
             //Add up the values of all characters in the word
-            for (char letter : words[i]){
+            for (char letter : words[i]) {
                 //Characters are cast to ints then reduced by 97 to index the points array
-                wordPoints[i] += points[(int)letter - 97];
+                wordPoints[i] += points[letter - 'a'];
             }
         }
 
         return wordPoints;
     }
 
-    public static void showWordPoints(char[][] words, int[] wordPoints){
-        for (int i = 0; i < words.length; i++){
+    private static void showWordPoints(char[][] words, int[] wordPoints) {
+        for (int i = 0; i < words.length; i++) {
             System.out.printf("%s: %d%n", new String(words[i]), wordPoints[i]);
         }
     }
