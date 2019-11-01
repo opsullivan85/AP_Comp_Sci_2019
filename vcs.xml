@@ -3,7 +3,11 @@
     <option name="visitedUrls">
       <list>
         <UrlAndUserName>
-          <option name="url" value="https://github.com/opsullivan85/AP_Comp_Sci_2019.git" />
+          <option name="url" value="http://github.com" />
+          <option name="userName" value="opsullivan85" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/FRCTeamPhoenix/Phoenix2019.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
       </list>
@@ -19,5 +23,8 @@
         <option value="3" />
       </list>
     </option>
+  </component>
+  <component name="VcsApplicationSettings">
+    <option name="SHOW_LST_WORD_DIFFERENCES" value="false" />
   </component>
 </application>
