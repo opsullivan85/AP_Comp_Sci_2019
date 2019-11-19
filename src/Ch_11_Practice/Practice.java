@@ -12,7 +12,7 @@ public class Practice {
 
         //##############################################################################################################
 
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        HashMap<String, Integer> map = new HashMap<>();
         map.put("a", 1);
         map.put("b", 2);
         map.put("c", 1);
@@ -23,21 +23,21 @@ public class Practice {
         System.out.println(b);
         System.out.println();
 
-        ArrayList<Integer> c = partition(new ArrayList<Integer>(Arrays.asList(1, 1, 4, 3, 2)), 4);
+        ArrayList<Integer> c = partition(new ArrayList<>(Arrays.asList(1, 1, 4, 3, 2)), 4);
         System.out.println("partition");
         System.out.println(c.toString());
         System.out.println();
 
         //##############################################################################################################
 
-        HashMap<Integer, Integer> a1 = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> a1 = new HashMap<>();
         a1.put(1, 3);
         a1.put(5, 8);
         a1.put(3, 3);
         a1.put(2, 0);
         a1.put(4, 1);
 
-        HashMap<Integer, Integer> a2 = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> a2 = new HashMap<>();
         a2.put(1, 3);
         a2.put(2, 8); //
         a2.put(3, 3);
@@ -52,7 +52,7 @@ public class Practice {
     }
 
     public static ArrayList<Integer> sortAndRemoveDuplicates(ArrayList<Integer> l){
-        Set<Integer> treeSet = new TreeSet<Integer>();
+        Set<Integer> treeSet = new TreeSet<>();
         treeSet.addAll(l);
         l.clear();
         l.addAll(treeSet);
@@ -60,7 +60,7 @@ public class Practice {
     }
 
     public static int rarest(HashMap<String, Integer> map){
-        ArrayList<Integer> values = new ArrayList<Integer>(map.values());
+        ArrayList<Integer> values = new ArrayList<>(map.values());
         values.sort(null);
         int bestnum = values.size() + 1;
         int best = 0;
@@ -97,7 +97,7 @@ public class Practice {
         Integer[] vals = A.values().toArray(new Integer[0]);
         int key;
         int val;
-        HashMap<Integer, Integer> C = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> C = new HashMap<>();
         for(int i = keys.length - 1; i >= 0; i--) {
             key = keys[i];
             val = vals[i];

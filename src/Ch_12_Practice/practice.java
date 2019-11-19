@@ -1,6 +1,5 @@
 package Ch_12_Practice;
 import java.math.BigInteger;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -16,7 +15,7 @@ public class practice {
         //System.out.println();
         //System.out.println(multiplyEvens(4));
 
-        domino_set d = new domino_set(new ArrayList<domino>(Arrays.asList(
+        domino_set d = new domino_set(new ArrayList<>(Arrays.asList(
                 new domino(6, 6),
                 new domino(6, 4),
                 new domino(4, 3),

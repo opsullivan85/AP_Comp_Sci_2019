@@ -1,6 +1,5 @@
 package Ch_12_Practice;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class domino_set {
