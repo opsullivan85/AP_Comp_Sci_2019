@@ -12,7 +12,6 @@ public class domino_set {
 
     public void has_chain(int start, int end){
         ArrayList<domino> chain = new ArrayList<>();
-
         for(domino choice: dominos){
             ArrayList<domino> new_chain = (ArrayList<domino>) chain.clone();
             new_chain.add(choice);
@@ -28,14 +27,15 @@ public class domino_set {
 
         //If this chain satisfies the conditions
         if(chain.get(0).start == start && last_domino_end == end){
-            for(domino d : dominos)
-                System.out.print(d);
+            for(domino d : chain)
+                System.out.print(d.toString());
             System.out.println();
         }
 
 
-        for(domino choice: choices){
-            if(last_domino_end == choice.start) {
+
+        for(domino choice: choices) {
+            if (last_domino_end == choice.start) {
                 ArrayList<domino> new_chain = (ArrayList<domino>) chain.clone();
                 new_chain.add(choice);
                 ArrayList<domino> new_choices = (ArrayList<domino>) choices.clone();
@@ -43,6 +43,5 @@ public class domino_set {
                 has_chain(start, end, new_chain, new_choices);
             }
         }
-
     }
 }

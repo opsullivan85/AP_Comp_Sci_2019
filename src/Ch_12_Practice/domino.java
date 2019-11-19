@@ -16,7 +16,7 @@ public class domino {
     int start;
     int end;
 
-    public domino(int first, int second) {
+    public domino(int start, int end) {
         this.start = start;
         this.end = end;
     }
