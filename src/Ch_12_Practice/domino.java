@@ -1,23 +1,23 @@
 package Ch_12_Practice;
 
 public class domino {
-    public int first() {
-        return first;
+    public int start() {
+        return start;
     }
 
-    public int second() {
-        return second;
+    public int end() {
+        return end;
     }
 
     public String toString(){
-        return(String.format("[%d|%d]", first, second));
+        return(String.format("[%d|%d]", start, end));
     }
 
-    int first;
-    int second;
+    int start;
+    int end;
 
     public domino(int first, int second) {
-        this.first = first;
-        this.second = second;
+        this.start = start;
+        this.end = end;
     }
 }
