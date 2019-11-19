@@ -89,7 +89,9 @@ public class Practice {
         return list;
     }
 
-    public static HashMap<Integer, Integer> intersect(HashMap<Integer, Integer> A, HashMap<Integer, Integer> B){
+    public static HashMap<Integer, Integer> intersect(HashMap<Integer, Integer>
+
+                                                              A, HashMap<Integer, Integer> B){
 
         Integer[] keys = A.keySet().toArray(new Integer[0]);
         Integer[] vals = A.values().toArray(new Integer[0]);
