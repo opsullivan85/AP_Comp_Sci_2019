@@ -1,3 +1,9 @@
+*.xml
+*.iml
 out
+keymaps
+inspection
+colors
+codestyles
+_windows
 .idea
-AP_Comp_Sci_2019.iml
