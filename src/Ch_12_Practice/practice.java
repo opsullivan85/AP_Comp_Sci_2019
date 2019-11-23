@@ -13,20 +13,9 @@ public class practice {
         //System.out.println(fib(100).divide(fib(99)));
 
         //System.out.println();
-        //System.out.println(multiplyEvens(4));
+        System.out.println(multiplyEvens(4));
 
         domino_set d = new domino_set(new ArrayList<>(Arrays.asList(
-                new domino(6, 6),
-                new domino(6, 4),
-                new domino(4, 3),
-                new domino(3, 3),
-                new domino(3, 6),
-                new domino(6, 1),
-                new domino(1, 4),
-                new domino(4, 2),
-                new domino(2, 2),
-                new domino(2, 1),
-                new domino(1, 5),
                 new domino(6, 6),
                 new domino(6, 4),
                 new domino(4, 3),

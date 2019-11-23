@@ -31,8 +31,6 @@ public class domino_set {
             System.out.println();
         }
 
-
-
         for(domino choice: choices) {
             if (last_domino_end == choice.start) {
                 ArrayList<domino> new_chain = (ArrayList<domino>) chain.clone();
