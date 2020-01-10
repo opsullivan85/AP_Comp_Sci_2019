@@ -3,53 +3,80 @@ package RandomWriter_Project;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 class RandomWriter {
     private int k, length;
     private String in;
     private FileWriter out;
 
-    RandomWriter(){
+    /**
+     * First gets parameters from the user then runs the program
+     */
+    RandomWriter() {
         this.get_parameters();
         this.run();
     }
 
-    //This is called when a new seed is needed
+    /**
+     * Gets a seed to start generating new characters from
+     * This is called in the beginning
+     * as well as whenever the program hits a dead end
+     *
+     * @return The new seed
+     */
     private String get_seed() {
         int index = (new Random()).nextInt(in.length() - k);
         return in.substring(index, index + k);
     }
 
+    /**
+     * Gets parameters from the user
+     */
     private void get_parameters() {
         Scanner c = new Scanner(System.in);
+
         //get k
         do {
-            System.out.print("k: ");
-            k = c.nextInt();
-            if (k < 0) {
-                System.out.println("k must be positive!");
+            try {
+                System.out.print("k: ");
+                k = c.nextInt();
+
+                if (k < 0) {
+                    System.out.println("k must be positive!");
+                }
+            } catch (Exception e) {
+                System.out.println("k must be an integer");
+                k = -1;
             }
+
         } while (k < 0);
 
         //get length
         do {
-            System.out.print("Length: ");
-            length = c.nextInt();
-            if (length < 0) {
-                System.out.println("length must be positive!");
+            try {
+                System.out.print("Length: ");
+
+                length = c.nextInt();
+
+                if (length < 0) {
+                    System.out.println("length must greater than or equal to k!");
+                }
+            } catch (Exception e) {
+                System.out.println("k must be an integer");
+                length = -1;
             }
-        } while (length < 0);
+        } while (length < k);
 
         //setup in
-        //in = "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground.";
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Input file path: ");
-                //System.out.println(c.next());
                 Scanner in_file = new Scanner(new File(c.next()));
 
-                while(in_file.hasNext()){
+                while (in_file.hasNext()) {
                     in += in_file.nextLine();
                 }
                 break;
@@ -60,51 +87,59 @@ class RandomWriter {
         }
 
         //setup out
-        while(true){
-            try{
+        while (true) {
+            try {
                 System.out.print("Output file path: ");
                 File outfile = new File(c.next());
                 out = new FileWriter(outfile);
                 break;
-            } catch(IOException e){
+            } catch (IOException e) {
                 System.out.println("That file location is not valid");
             }
         }
     }
 
-    private String get_next_char(String key){
-        //if the text does not contain the key get a new seed
-        if (!in.contains(key)){
-            return get_seed();
-        } else {
-            System.out.println("good");
-            //get a random index in the text
-            //return the character after the next occurance
-            //of the key after or before the index
-            Random r = new Random();
-            int index = r.nextInt(in.length());
-            if(in.substring(index).contains(key)){
-                return String.valueOf(in.substring(index).charAt(key.indexOf(key) + key.length()));
-            } else if(in.substring(0, index).contains(key)){
-                return String.valueOf(in.substring(0, index).charAt(in.lastIndexOf(key) + key.length()));
-            } else{
-                return "[[Something has gone terribly wrong!]]";
+    /**
+     * @param key the string to find characters after
+     * @return a character after one of the occurrences of the key
+     */
+    private String get_next_char(String key) {
+        ArrayList<Character> chars = new ArrayList<>();
+
+        //Builds a list of chars following the key
+        for (int i = in.length() - k - 1; i >= 0; i--) {
+            if (in.substring(i, i + k).equals(key)) {
+                chars.add(in.charAt(i + k));
             }
         }
+
+        if (chars.size() == 0) {
+            //If chars is empty return a new seed
+            return get_seed();
+        } else {
+            //Return a random char from chars
+            return String.valueOf(chars.get((new Random()).nextInt(chars.size())));
+        }
+
     }
 
-    private void run(){
+    /**
+     * Runs the program
+     */
+    private void run() {
         //The output string
-        StringBuilder out_str = new StringBuilder(get_seed());
+        String out_str = get_seed();
 
-        for(int i = length; i > 0; i--){
-            out_str.append(get_next_char(out_str.substring(out_str.length() - k)));
+        //Builds up out_str
+        while (out_str.length() < length) {
+            out_str += get_next_char(out_str.substring(out_str.length() - k));
         }
 
         System.out.println(out_str);
 
-        try{
-            out.write(out_str.toString());
+        //Write to the output
+        try {
+            out.write(out_str);
             out.close();
 
         } catch (IOException e) {
