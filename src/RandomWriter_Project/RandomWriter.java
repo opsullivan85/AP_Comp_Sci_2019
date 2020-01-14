@@ -128,18 +128,18 @@ class RandomWriter {
      */
     private void run() {
         //The output string
-        String out_str = get_seed();
+        StringBuilder out_str = new StringBuilder(get_seed());
 
         //Builds up out_str
         while (out_str.length() < length) {
-            out_str += get_next_char(out_str.substring(out_str.length() - k));
+            out_str.append(get_next_char(out_str.substring(out_str.length() - k)));
         }
 
         System.out.println(out_str);
 
         //Write to the output
         try {
-            out.write(out_str);
+            out.write(out_str.toString());
             out.close();
 
         } catch (IOException e) {
