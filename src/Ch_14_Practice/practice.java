@@ -9,8 +9,8 @@ public class practice {
         Queue<Double> q = new LinkedList<Double>(Arrays.asList(-1., 1., -2., 2., 0., 1.));
         System.out.println(split_queue(q));
 
-        Queue<Double> q = new LinkedList<Double>(Arrays.asList(-1., 1., -2., 2., 0., 1.));
-        System.out.println(split_queue(q));
+        Queue<Integer> p = new LinkedList<Integer>(Arrays.asList(-1, 1, -2, -2, 1, -1));
+        System.out.println(is_palindrome(p));
     }
 
     public static Number postfix_operations(String string) {
@@ -61,6 +61,19 @@ public class practice {
     }
 
     public static boolean is_palindrome(Queue<Integer> n) {
+        Stack<Integer> stack = new Stack<>();
+        Queue<Integer> queue = new LinkedList<>();
 
+        for (Integer i : n) {
+            stack.add(i);
+            queue.add(i);
+        }
+
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            if (!stack.pop().equals(queue.remove())) {
+                return false;
+            }
+        }
+        return true;
     }
 }
