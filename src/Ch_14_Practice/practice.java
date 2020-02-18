@@ -11,6 +11,10 @@ public class practice {
 
         Queue<Integer> p = new LinkedList<Integer>(Arrays.asList(-1, 1, -2, -2, 1, -1));
         System.out.println(is_palindrome(p));
+
+        Stack<Integer> a = new Stack<>();
+        a.addAll(Arrays.asList(5, 1, 9, 2, 5, 1, 7));
+        dumb_function(a);
     }
 
     public static Number postfix_operations(String string) {
@@ -75,5 +79,34 @@ public class practice {
             }
         }
         return true;
+    }
+
+    public static void dumb_function(Stack<Integer> a) {
+        Collections.reverse(a);
+        int val;
+        for (int i = 0; !a.empty(); i++) {
+            System.out.print(dumb_function_carrier((Stack<Integer>) a.clone()) + " ");
+            a.pop();
+        }
+    }
+
+    public static int dumb_function_carrier(Stack<Integer> a) {
+        int i, Z, Q;
+
+        i = a.pop();
+
+        for (int z = 1; !a.empty(); z++) {
+            Z = a.pop();
+            if (Z > i) {
+                for (int q = z + 1; !a.empty(); q++) {
+                    Q = a.pop();
+                    if (Q < Z) {
+                        return (Q);
+                    }
+                }
+            }
+        }
+
+        return (-1);
     }
 }
