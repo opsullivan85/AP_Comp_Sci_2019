@@ -1,7 +1,5 @@
 package Ch_12_Practice;
 
-import java.util.Arrays;
-
 public class EightQueens {
     static final int N = 5;
     static int total = 0;

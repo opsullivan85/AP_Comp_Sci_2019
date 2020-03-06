@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class domino_set {
     ArrayList<domino> dominos;
 
-    public domino_set(ArrayList<domino> dominos){
+    public domino_set(ArrayList<domino> dominos) {
         this.dominos = dominos;
     }
 
-    public void has_chain(int start, int end){
+    public void has_chain(int start, int end) {
         ArrayList<domino> chain = new ArrayList<>();
-        for(domino choice: dominos){
+        for (domino choice : dominos) {
             ArrayList<domino> new_chain = (ArrayList<domino>) chain.clone();
             new_chain.add(choice);
             ArrayList<domino> new_choices = (ArrayList<domino>) dominos.clone();
@@ -20,18 +20,18 @@ public class domino_set {
         }
     }
 
-    private void has_chain(int start, int end, ArrayList<domino> chain, ArrayList<domino> choices){
+    private void has_chain(int start, int end, ArrayList<domino> chain, ArrayList<domino> choices) {
 
-        int last_domino_end = chain.get(chain.size()-1).end();
+        int last_domino_end = chain.get(chain.size() - 1).end();
 
         //If this chain satisfies the conditions
-        if(chain.get(0).start == start && last_domino_end == end){
-            for(domino d : chain)
+        if (chain.get(0).start == start && last_domino_end == end) {
+            for (domino d : chain)
                 System.out.print(d.toString());
             System.out.println();
         }
 
-        for(domino choice: choices) {
+        for (domino choice : choices) {
             if (last_domino_end == choice.start) {
                 ArrayList<domino> new_chain = (ArrayList<domino>) chain.clone();
                 new_chain.add(choice);

@@ -9,8 +9,8 @@ public class domino {
         return end;
     }
 
-    public String toString(){
-        return(String.format("[%d|%d]", start, end));
+    public String toString() {
+        return (String.format("[%d|%d]", start, end));
     }
 
     int start;

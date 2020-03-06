@@ -3,7 +3,7 @@ package Ch_11_Practice;
 import java.util.*;
 
 public class Practice {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         ArrayList<Integer> a = sortAndRemoveDuplicates(new ArrayList<Integer>(Arrays.asList(1, 1, 4, 3, 2)));
         System.out.println("sortAndRemoveDuplicates");
@@ -51,59 +51,59 @@ public class Practice {
 
     }
 
-    public static ArrayList<Integer> sortAndRemoveDuplicates(ArrayList<Integer> l){
+    public static ArrayList<Integer> sortAndRemoveDuplicates(ArrayList<Integer> l) {
         Set<Integer> treeSet = new TreeSet<>();
         treeSet.addAll(l);
         l.clear();
         l.addAll(treeSet);
-        return(l);
+        return (l);
     }
 
-    public static int rarest(HashMap<String, Integer> map){
+    public static int rarest(HashMap<String, Integer> map) {
         ArrayList<Integer> values = new ArrayList<>(map.values());
         values.sort(null);
         int bestnum = values.size() + 1;
         int best = 0;
         int occurances;
-        for(int i = values.size() - 1 ; i > 1; i--){
+        for (int i = values.size() - 1; i > 1; i--) {
             occurances = 0;
-            while(i > 1 && values.get(i-1) == values.get(i) ){
+            while (i > 1 && values.get(i - 1) == values.get(i)) {
                 i--;
                 occurances++;
             }
-            if(occurances < bestnum){
+            if (occurances < bestnum) {
                 bestnum = occurances;
                 best = values.get(i);
-            } else if(occurances == bestnum){
-                if(values.get(i) < best){
+            } else if (occurances == bestnum) {
+                if (values.get(i) < best) {
                     bestnum = occurances;
                     best = values.get(i);
                 }
             }
         }
-        return(best);
+        return (best);
     }
 
-    public static ArrayList<Integer> partition(ArrayList<Integer> list, int E){
+    public static ArrayList<Integer> partition(ArrayList<Integer> list, int E) {
         list.sort(null);
         return list;
     }
 
     public static HashMap<Integer, Integer> intersect(HashMap<Integer, Integer>
 
-                                                              A, HashMap<Integer, Integer> B){
+                                                              A, HashMap<Integer, Integer> B) {
 
         Integer[] keys = A.keySet().toArray(new Integer[0]);
         Integer[] vals = A.values().toArray(new Integer[0]);
         int key;
         int val;
         HashMap<Integer, Integer> C = new HashMap<>();
-        for(int i = keys.length - 1; i >= 0; i--) {
+        for (int i = keys.length - 1; i >= 0; i--) {
             key = keys[i];
             val = vals[i];
-            if(B.remove(key, val))
+            if (B.remove(key, val))
                 C.put(key, val);
         }
-        return(C);
+        return (C);
     }
 }
