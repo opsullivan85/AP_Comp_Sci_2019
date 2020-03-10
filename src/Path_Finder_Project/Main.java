@@ -15,7 +15,6 @@ import java.util.Stack;
 class Main {
     private final static char C = Constants.C, X = Constants.X, S = Constants.S, E = Constants.E, V = Constants.V;
 
-    //Unsolvable Maze
     private char[][] possible_maze_base = {
             {X, X, X, X, X, X, X, X, X, X},
             {X, S, C, C, C, C, C, C, C, X},
@@ -30,7 +29,6 @@ class Main {
     };
     private Maze possible_maze = new Maze(possible_maze_base, 1, 1);
 
-    //Solvable Maze
     private char[][] impossible_maze_base = {
             {X, X, X, X, X, X, X, X, X, X, X, X, X, X, X},
             {X, C, C, C, C, C, C, X, C, C, C, C, C, C, X},

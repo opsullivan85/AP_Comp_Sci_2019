@@ -1,6 +1,7 @@
 package Golf_Club_Project;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GolfClub {
@@ -148,6 +149,7 @@ public class GolfClub {
         if (members.size() > 1) {
             ArrayList<Member> sublist1 = recursive_merge_sort(new ArrayList<Member>(members.subList(0, members.size() / 2)));
             ArrayList<Member> sublist2 = recursive_merge_sort(new ArrayList<Member>(members.subList(members.size() / 2, members.size())));
+
 
             //Put the lowest of the first indices from each sublist into the sorted array until one is empty
             while (!sublist1.isEmpty() && !sublist2.isEmpty()) {
