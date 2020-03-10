@@ -51,20 +51,14 @@ class Main {
         System.out.println(maze.toString());
         System.out.println();
 
-        if (solveQ(maze.copy())) {
-            System.out.println("Queue: Escaped Successfully");
-        } else {
-            System.out.println("Queue: Unable to Escape");
-        }
+        solveQ(maze.copy());
+        System.out.println();
 
-        if (solveS(maze.copy())) {
-            System.out.println("Stack: Escaped Successfully");
-        } else {
-            System.out.println("Stack: Unable to Escape");
-        }
+        solveS(maze.copy());
+        System.out.println();
     }
 
-    public boolean solveQ(Maze maze) {
+    public void solveQ(Maze maze) {
         Queue<Location> queue = new LinkedList<>();
         queue.add(maze.get_start());
         Location head;
@@ -78,16 +72,21 @@ class Main {
                     head.set_explored();
                 }
 
-                if (head.query() == Constants.E)
-                    return true;
+                if (head.query() == Constants.E) {
+                    System.out.println("Queue: Escaped Successfully");
+                    System.out.println(maze);
+                    return;
+                }
             }
 
         } while (!queue.isEmpty());
 
-        return false;
+
+        System.out.println("Queue: Unable to Escape");
+        System.out.println(maze);
     }
 
-    public boolean solveS(Maze maze) {
+    public void solveS(Maze maze) {
         Stack<Location> stack = new Stack<>();
         stack.add(maze.get_start());
         Location head;
@@ -101,12 +100,16 @@ class Main {
                     head.set_explored();
                 }
 
-                if (head.query() == Constants.E)
-                    return true;
+                if (head.query() == Constants.E) {
+                    System.out.println("Stack: Escaped Successfully");
+                    System.out.println(maze);
+                    return;
+                }
             }
 
         } while (!stack.isEmpty());
 
-        return false;
+        System.out.println("Stack: Unable to Escape");
+        System.out.println(maze);
     }
 }
