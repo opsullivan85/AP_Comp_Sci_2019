@@ -1,10 +1,20 @@
+package Path_Finder_Project;
+
 import java.util.*;
 
+/*
+    With the exception of the variable names and initialization, solveQ and solveS
+    only differ in where the head is taken from. This means that solveS solves
+    the mazes depth first, where solveQ solves the mazes breadth first.
+
+    The way that my program works through the stack or queue reminds me of recursion.
+ */
+
 class Main {
-    final static char C = ' ', X = 'x', S = 's', E = 'e', V = '.';
+    private final static char C = Constants.C, X = Constants.X, S = Constants.S, E = Constants.E, V = Constants.V;
 
     //Unsolvable Maze
-    private static char[][] mazeBase = {
+    private char[][] possible_maze_base = {
             {X, X, X, X, X, X, X, X, X, X},
             {X, S, C, C, C, C, C, C, C, X},
             {X, C, C, C, X, C, X, X, C, X},
@@ -16,12 +26,10 @@ class Main {
             {X, X, C, C, C, C, C, C, C, X},
             {X, X, X, X, X, X, C, X, X, X}
     };
+    private Maze possible_maze = new Maze(possible_maze_base, 1, 1);
 
-    private static Location start = new Location(1, 1);
-  
-  /*
-  //Solveable Maze
-  private static char[][] mazeBase = {
+    //Solvable Maze
+    private char[][] impossible_maze_base = {
             {X, X, X, X, X, X, X, X, X, X, X, X, X, X, X},
             {X, C, C, C, C, C, C, X, C, C, C, C, C, C, X},
             {X, X, X, C, X, X, X, X, X, X, X, C, X, C, X},
@@ -31,45 +39,74 @@ class Main {
             {X, C, X, X, X, X, X, C, X, C, X, C, X, C, X},
             {X, C, C, C, C, S, C, C, X, C, C, X, E, C, X},
             {X, X, X, X, X, X, X, X, X, X, X, X, X, X, X}
-  };
+    };
+    private Maze impossible_maze = new Maze(impossible_maze_base, 7, 5);
 
-  private static Location start = new Location(7, 5);
-  */
+    public void run() {
+        Maze maze = impossible_maze;
+        //Maze maze = possible_maze;
 
-    public static void main(String[] args) {
-        print(mazeBase);
-
+        System.out.println(maze.toString());
         System.out.println();
-        solveQ();
-        System.out.println();
-        solveS();
-    }
 
-    public static void print(char[][] maze) {
-        for (int i = 0; i < maze.length; i++) {
-            for (int j = 0; j < maze[0].length; j++) {
-                System.out.print(maze[i][j]);
-                System.out.print(' ');
-            }
-            System.out.println();
+        if (solveQ(maze.copy())) {
+            System.out.println("Queue: Escaped Successfully");
+        } else {
+            System.out.println("Queue: Unable to Escape");
+        }
+
+        if (solveS(maze.copy())) {
+            System.out.println("Stack: Escaped Successfully");
+        } else {
+            System.out.println("Stack: Unable to Escape");
         }
     }
 
-    public static char[][] copy() {
-        char[][] temp = new char[mazeBase.length][mazeBase[0].length];
-        for (int i = 0; i < mazeBase.length; i++) {
-            for (int j = 0; j < mazeBase[0].length; j++) {
-                temp[i][j] = mazeBase[i][j];
+    public boolean solveQ(Maze maze) {
+        Queue<Location> queue = new LinkedList<>();
+        queue.add(maze.get_start());
+        Location head;
+        char c;
+
+        do {
+            head = queue.remove();
+
+            if (head.is_valid()) {
+                if (head.query() == Constants.C || head.query() == Constants.S) {
+                    queue.addAll(head.get_surrounding_locations());
+                    head.set_explored();
+                }
+
+                if (head.query() == Constants.E)
+                    return true;
             }
-        }
-        return temp;
+
+        } while (!queue.isEmpty());
+
+        return false;
     }
 
-    public static void solveQ() {
+    public boolean solveS(Maze maze) {
+        Stack<Location> stack = new Stack<>();
+        stack.add(maze.get_start());
+        Location head;
+        char c;
 
-    }
+        do {
+            head = stack.pop();
 
-    public static void solveS() {
+            if (head.is_valid()) {
+                if (head.query() == Constants.C || head.query() == Constants.S) {
+                    stack.addAll(head.get_surrounding_locations());
+                    head.set_explored();
+                }
 
+                if (head.query() == Constants.E)
+                    return true;
+            }
+
+        } while (!stack.isEmpty());
+
+        return false;
     }
 }
