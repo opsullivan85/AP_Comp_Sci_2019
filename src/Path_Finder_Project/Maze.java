@@ -1,7 +1,5 @@
 package Path_Finder_Project;
 
-import java.util.Arrays;
-
 public class Maze {
     private char[][] maze;
     private Location start;

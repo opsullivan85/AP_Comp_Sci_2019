@@ -1,6 +1,8 @@
 package Path_Finder_Project;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /*
     With the exception of the variable names and initialization, solveQ and solveS
@@ -66,7 +68,6 @@ class Main {
         Queue<Location> queue = new LinkedList<>();
         queue.add(maze.get_start());
         Location head;
-        char c;
 
         do {
             head = queue.remove();
@@ -90,7 +91,6 @@ class Main {
         Stack<Location> stack = new Stack<>();
         stack.add(maze.get_start());
         Location head;
-        char c;
 
         do {
             head = stack.pop();
