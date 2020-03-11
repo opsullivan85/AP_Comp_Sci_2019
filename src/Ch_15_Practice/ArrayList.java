@@ -1,7 +1,5 @@
 package Ch_15_Practice;
 
-import java.util.List;
-
 public class ArrayList<E> {
     private Object[] list;
 

@@ -1,7 +1,6 @@
 package Golf_Club_Project;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class GolfClub {
