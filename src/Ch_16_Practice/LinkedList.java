@@ -119,7 +119,7 @@ public class LinkedList<E> {
         return false;
     }
 
-    public void removeAllOf(Object o) {
+    public void removeAllOf(E o) {
         ListNode<E> current = front;
 
         //edge case for an empty list
@@ -137,8 +137,9 @@ public class LinkedList<E> {
         while (current.next != null) {
             if (current.next.data == o) {
                 current.next = current.next.next;
+            } else {
+                current = current.next;
             }
-            current = current.next;
         }
     }
 
@@ -146,7 +147,7 @@ public class LinkedList<E> {
         ListNode<E> thingToRemove = list.front;
 
         do {
-            this.removeAllOf(thingToRemove);
+            this.removeAllOf(thingToRemove.data);
             thingToRemove = thingToRemove.next;
         } while (thingToRemove != null);
     }
