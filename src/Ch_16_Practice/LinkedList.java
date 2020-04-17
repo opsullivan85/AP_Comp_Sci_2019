@@ -30,7 +30,10 @@ public class LinkedList<E> {
     }
 
     public void addAll(int index, LinkedList<E> list) {
-        getIndex(-1).next = list.front;
+        ListNode<E> beforeSplice = getIndex(index);
+        ListNode<E> afterSplice = beforeSplice.next;
+        beforeSplice.next = list.front;
+        getIndex(-1).next = afterSplice;
     }
 
     public boolean containsAll(LinkedList<E> list) {
