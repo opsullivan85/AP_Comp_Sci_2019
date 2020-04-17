@@ -89,7 +89,7 @@ public class LinkedList<E> {
             index++;
         } while (current != null);
 
-        return index;
+        return indexof;
     }
 
 
