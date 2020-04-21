@@ -58,8 +58,10 @@ public class ArrayList<E> {
     }
 
     public boolean remove(Object o) {
+        int index = -1;
+
         if (this.contains(o)) {
-            int index = this.lastIndexOf(o);
+            index = this.lastIndexOf(o);
         } else {
             return false;
         }
